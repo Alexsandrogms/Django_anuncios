@@ -10,7 +10,7 @@
                 <img src="{% static 'anuncios/img/image.png' %}">
             </div>
             <div class="content">
-                <a class="header">
+                <a href="{% url 'anuncio' anuncio.id %}" class="header">
                     {{ anuncio }}
                 </a>
             </div>

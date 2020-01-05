@@ -21,3 +21,11 @@ def categoria(requests, categoria_id):
     anuncios = Anuncio.objects.filter(categoria=categoria)
 
     return render(requests, 'home.html', {'categorias': Categorias, 'anuncios': anuncios, 'categoria': categoria})
+
+
+def anuncio(requests, anuncio_id):
+    anuncio = get_object_or_404(Anuncio, id=anuncio_id)
+    
+    Categorias = Categoria.objects.all()
+
+    return render(requests, 'anuncio.html', {'categorias': Categorias, 'anuncio': anuncio})
