@@ -1,89 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Django Anuncios</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.3/dist/semantic.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.3/dist/semantic.min.js"></script>
-</head>
-<body>
-    <div class="ui container">
-        <div class="ui attached menu">
-            <a class="item">Django Anuncios</a>
-            <div class="right menu">
-                <div class="ui right aligned category search item">
-                    <div class="ui transparent icon input">
-                        <input class="prompt" type="text" placeholder="Pesquisar...">
-                        <i class="search link icon"></i>
-                    </div>
-                </div>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block conteudo %}
+<div class="ui three column stackable grid">
+    {% for anuncio in anuncios %}
+    <div class="column">
+        <div class="ui fluid card">
+            <div class="image">
+                <img src="{% static 'anuncios/img/image.png' %}">
+            </div>
+            <div class="content">
+                <a class="header">
+                    {{ anuncio }}
+                </a>
+            </div>
+            <div class="extra content">
+                <i class="dollar sign icon"></i>
+                    {{ anuncio.preco }}
+            </div>
+            <div class="extra content">
+                <i class="clock outline icon"></i>
+                {{ anuncio.criado_em }}
             </div>
         </div>
     </div>
-
-    <div class="ui hidden divider"></div>
-
-    <div class="ui container">
-        <div class="ui stackable grid">
-            <div class="four wide column">
-                <div class="ui vertical fluid menu">
-                    <a class="teal item">
-                        Imóveis
-                    </a>
-                    <a class="item">
-                        Informática
-                    </a>
-                </div>
-            </div>
-            <div class="twelve wide column">
-                <div class="ui three column stackable grid">
-                    <div class="column">
-                        <div class="ui fluid card">
-                            <div class="image">
-                                <img src="/images/avatar2/large/kristy.png">
-                            </div>
-                            <div class="content">
-                                <a class="header">HB20</a>
-                            </div>
-                            <div class="extra content">
-                                <i class="dollar sign icon"></i>
-                                    28,000
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column">
-                        <div class="ui fluid card">
-                            <div class="image">
-                                <img src="/images/avatar2/large/kristy.png">
-                            </div>
-                            <div class="content">
-                                <a class="header">HILLUX</a>
-                            </div>
-                            <div class="extra content">
-                                <i class="dollar sign icon"></i>
-                                    80,000
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column">
-                        <div class="ui fluid card">
-                            <div class="image">
-                                <img src="/images/avatar2/large/kristy.png">
-                            </div>
-                            <div class="content">
-                                <a class="header">BMW</a>
-                            </div>
-                            <div class="extra content">
-                                <i class="dollar sign icon"></i>
-                                    120,000
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> 
-</body>
-</html>
+    {% endfor %}
+</div>
+{% endblock  %}

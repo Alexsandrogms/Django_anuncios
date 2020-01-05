@@ -6,6 +6,9 @@ class Categoria(models.Model):
     def __str__(self):
         return self.titulo
 
+    class Meta:
+        ordering = ['titulo']
+
 
 class Anuncio(models.Model):
     titulo = models.CharField(max_length=50)
@@ -17,4 +20,7 @@ class Anuncio(models.Model):
 
     def __str__(self):
         return self.titulo
+
+    class Meta:
+        ordering = ['-id']
     
